@@ -78,11 +78,11 @@
                 @foreach ($categories as $category)
                 <option class="contact__option" value="{{ $category->id }}">{{ $category->content }}</option>
                 @endforeach
-                <option class="contact__option" value="配達"{{ old('categories->firstWhere('id', $category_id)->content') == '配達' ? 'selected' : '' }}>商品のお届けについて</option>
-                <option class="contact__option" value="交換"{{ old('categories->firstWhere('id', $category_id)->content') == '交換' ? 'selected' : '' }}>商品の交換について</option>
-                <option class="contact__option" value="トラブル"{{ old('categories->firstWhere('id', $category_id)->content') == 'トラブル' ? 'selected' : '' }}>商品トラブル</option>
-                <option class="contact__option" value="お問い合わせ"{{ old('categories->firstWhere('id', $category_id)->content') == 'お問い合わせ' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
-                <option class="contact__option" value="その他"{{ old('categories->firstWhere('id', $category_id)->content') == 'その他' ? 'selected' : '' }}>その他</option>
+                <option class="contact__option" value="配達" {{ old('category_id') == '配達' ? 'selected' : '' }}>商品のお届けについて</option>
+                <option class="contact__option" value="交換" {{ old('category_id') == '交換' ? 'selected' : '' }}>商品の交換について</option>
+                <option class="contact__option" value="トラブル" {{ old('category_id') == 'トラブル' ? 'selected' : '' }}>商品トラブル</option>
+                <option class="contact__option" value="お問い合わせ" {{ old('category_id') == 'お問い合わせ' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                <option class="contact__option" value="その他" {{ old('category_id') == 'その他' ? 'selected' : '' }}>その他</option>
                 @error('category_id')
                 <p class="error-message">{{ $message }}</p>
                 @enderror
