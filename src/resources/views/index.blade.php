@@ -24,9 +24,9 @@
 
         <div class="contact__field">
             <label class="contact__label">性別<span class="contact__required">*</span></label>
-            <input class="radio__input" type="radio" name="gender" value="男性" value="男性{{ old('gender') == '男性' ? 'checked' : '' }}"><label class="input__label">男性</label>
-            <input class="radio__input" type="radio" name="gender" value="女性" value="女性{{ old('gender') == '女性' ? 'checked' : '' }}"><label class="input__label">女性</label>
-            <input class="radio__input" type="radio" name="gender" value="その他" value="その他{{ old('gender') == 'その他' ? 'checked' : '' }}"><label class="input__label">その他</label>
+            <input class="radio__input" type="radio" name="gender" value="男性" {{ old('gender') == '男性' ? 'checked' : '' }}"><label class="input__label">男性</label>
+            <input class="radio__input" type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}"><label class="input__label">女性</label>
+            <input class="radio__input" type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}"><label class="input__label">その他</label>
             @error('gender')
             <p class="error-message">{{ $message }}</p>
             @enderror
@@ -78,11 +78,11 @@
                 @foreach ($categories as $category)
                 <option class="contact__option" value="{{ $category->id }}">{{ $category->content }}</option>
                 @endforeach
-                <option class="contact__option" value="配達{{ old('categories->firstWhere('id', $category_id)->content') == '配達' ? 'selected' : '' }}">商品のお届けについて</option>
-                <option class="contact__option" value="交換{{ old('categories->firstWhere('id', $category_id)->content') == '交換' ? 'selected' : '' }}">商品の交換について</option>
-                <option class="contact__option" value="トラブル{{ old('categories->firstWhere('id', $category_id)->content') == 'トラブル' ? 'selected' : '' }}">商品トラブル</option>
-                <option class="contact__option" value="お問い合わせ{{ old('categories->firstWhere('id', $category_id)->content') == 'お問い合わせ' ? 'selected' : '' }}">ショップへのお問い合わせ</option>
-                <option class="contact__option" value="その他{{ old('categories->firstWhere('id', $category_id)->content') == 'その他' ? 'selected' : '' }}">その他</option>
+                <option class="contact__option" value="配達"{{ old('categories->firstWhere('id', $category_id)->content') == '配達' ? 'selected' : '' }}>商品のお届けについて</option>
+                <option class="contact__option" value="交換"{{ old('categories->firstWhere('id', $category_id)->content') == '交換' ? 'selected' : '' }}>商品の交換について</option>
+                <option class="contact__option" value="トラブル"{{ old('categories->firstWhere('id', $category_id)->content') == 'トラブル' ? 'selected' : '' }}>商品トラブル</option>
+                <option class="contact__option" value="お問い合わせ"{{ old('categories->firstWhere('id', $category_id)->content') == 'お問い合わせ' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                <option class="contact__option" value="その他"{{ old('categories->firstWhere('id', $category_id)->content') == 'その他' ? 'selected' : '' }}>その他</option>
                 @error('category_id')
                 <p class="error-message">{{ $message }}</p>
                 @enderror
