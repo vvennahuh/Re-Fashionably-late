@@ -13,7 +13,7 @@ class AuthRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // 認証を許可
     }
 
     /**
@@ -24,7 +24,24 @@ class AuthRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255', // 名前
+            'email' => 'required|email', // メールアドレス
+            'password' => 'required|string|min:8|max:255', // パスワード
+        ];
+    }
+
+    /**
+     * Get custom attribute names for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'お名前は入力してください。',
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => 'メールアドレスは「ユーザー@ドメイン」形式で入力してください。',
+            'password.required' => 'パスワードを入力してください。',
         ];
     }
 }
